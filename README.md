@@ -2,7 +2,6 @@
 
 [![Package <a href="https://github.com/inoas/gleam-cake-sqlight/releases"><img src="https://img.shields.io/github/release/inoas/gleam-cake-sqlight" alt="GitHub release"></a> Version](https://img.shields.io/hexpm/v/cake)](https://hex.pm/packages/cake)
 [![Erlang-compatible](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
-[![JavaScript Compatible](https://img.shields.io/badge/target-javascript-f3e155)](https://en.wikipedia.org/wiki/JavaScript)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/cake_sqlight/)
 [![Discord](https://img.shields.io/discord/768594524158427167?label=discord%20chat&amp;color=5865F2)](https://discord.gg/Fm8Pwmy)
 
