@@ -105,10 +105,10 @@ pub fn run_query(
 /// Execute a raw SQL query against an SQLite database.
 ///
 pub fn execute_raw_sql(
-  sql sql: String,
-  connection connection: Connection,
+  sql_string sql_string: String,
+  db_connection db_connection: Connection,
 ) -> Result(Nil, Error) {
-  sql |> sqlight.exec(on: connection)
+  sql_string |> sqlight.exec(on: db_connection)
 }
 
 fn cake_param_to_sqlight_param(param param: Param) -> Value {
