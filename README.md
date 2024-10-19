@@ -85,17 +85,6 @@ fn delete_from_table_demo(db_connection) {
   |> d.to_query
   |> sqlite.run_write_query(dynamic.dynamic, db_connection)
   |> io.debug
-
-  // Could also wrap in a generic cake query:
-  // Instead of:
-  // |> d.to_query
-  // |> sqlite.run_write_query(dynamic.dynamic, db_connection)
-  // Run:
-  // |> d.to_query
-  // |> cake.to_write_query
-  // |> sqlite.run_query(dynamic.dynamic, db_connection)
-  //
-  // The same exists for read queries.
 }
 ```
 
