@@ -60,7 +60,7 @@ pub fn run_read_query(
   let db_params =
     prepared_statement
     |> cake.get_params
-    |> list.map(with: cake_param_to_sqlight_param)
+    |> list.map(with: cake_param_to_driver_param)
 
   prepared_statement
   |> cake.get_sql
@@ -78,7 +78,7 @@ pub fn run_write_query(
   let db_params =
     prepared_statement
     |> cake.get_params
-    |> list.map(with: cake_param_to_sqlight_param)
+    |> list.map(with: cake_param_to_driver_param)
 
   prepared_statement
   |> cake.get_sql
@@ -111,7 +111,7 @@ pub fn execute_raw_sql(
   sql_string |> sqlight.exec(on: db_connection)
 }
 
-fn cake_param_to_sqlight_param(param param: Param) -> Value {
+fn cake_param_to_driver_param(param param: Param) -> Value {
   case param {
     BoolParam(param) -> sqlight.bool(param)
     FloatParam(param) -> sqlight.float(param)
