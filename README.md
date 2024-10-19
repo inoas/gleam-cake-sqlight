@@ -34,14 +34,14 @@ const sqlite_database_filename = "birds.sqlite3"
 pub fn main() {
   // sqlite.with_memory_connection, fn(db_connection) { // If you only want to use an in-memory database
   sqlite.with_connection(sqlite_database_filename, fn(db_connection) {
-    db_connection |> create_table_if_not_exists_demo
-    db_connection |> insert_into_table_demo
-    db_connection |> select_from_table_demo
-    db_connection |> delete_from_table_demo
+    db_connection |> create_table_if_not_exists_birds
+    db_connection |> insert_into_table_birds
+    db_connection |> select_from_table_birds
+    db_connection |> delete_from_table_birds
   })
 }
 
-fn create_table_if_not_exists_demo(db_connection) {
+fn create_table_if_not_exists_birds(db_connection) {
   "CREATE TABLE IF NOT EXISTS birds (
     species TEXT,
     average_weight FLOAT(8),
@@ -51,7 +51,7 @@ fn create_table_if_not_exists_demo(db_connection) {
   |> io.debug
 }
 
-fn insert_into_table_demo(db_connection) {
+fn insert_into_table_birds(db_connection) {
   [
     [i.string("Dodo"), i.float(14.05), i.bool(True)] |> i.row,
     [i.string("Great auk"), i.float(5.0), i.bool(True)] |> i.row,
@@ -67,8 +67,7 @@ fn insert_into_table_demo(db_connection) {
   |> io.debug
 }
 
-fn select_from_table_demo(db_connection) {
-  // select from table birds
+fn select_from_table_birds(db_connection) {
   s.new()
   |> s.from_table("table")
   |> s.selects([s.col("species")])
@@ -77,8 +76,7 @@ fn select_from_table_demo(db_connection) {
   |> io.debug
 }
 
-fn delete_from_table_demo(db_connection) {
-  // delete from table birds
+fn delete_from_table_birds(db_connection) {
   d.new()
   |> d.table("birds")
   |> d.where(w.col("species") |> w.eq(w.string("Dodo")))
