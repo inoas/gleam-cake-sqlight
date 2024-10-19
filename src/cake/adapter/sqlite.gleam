@@ -56,14 +56,14 @@ pub fn run_read_query(
   decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
   db_connection db_connection: Connection,
 ) -> Result(List(a), Error) {
-  let prepared_statement = read_query_to_prepared_statement(query)
+  let prepared_statement = query |> read_query_to_prepared_statement
+  let sql_string = prepared_statement |> cake.get_sql
   let db_params =
     prepared_statement
     |> cake.get_params
-    |> list.map(with: cake_param_to_driver_param)
+    |> list.map(with: cake_param_to_client_param)
 
-  prepared_statement
-  |> cake.get_sql
+  sql_string
   |> sqlight.query(on: db_connection, with: db_params, expecting: decoder)
 }
 
@@ -74,14 +74,14 @@ pub fn run_write_query(
   decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
   db_connection db_connection: Connection,
 ) -> Result(List(a), Error) {
-  let prepared_statement = write_query_to_prepared_statement(query)
+  let prepared_statement = query |> write_query_to_prepared_statement
+  let sql_string = prepared_statement |> cake.get_sql
   let db_params =
     prepared_statement
     |> cake.get_params
-    |> list.map(with: cake_param_to_driver_param)
+    |> list.map(with: cake_param_to_client_param)
 
-  prepared_statement
-  |> cake.get_sql
+  sql_string
   |> sqlight.query(on: db_connection, with: db_params, expecting: decoder)
 }
 
@@ -111,7 +111,7 @@ pub fn execute_raw_sql(
   sql_string |> sqlight.exec(on: db_connection)
 }
 
-fn cake_param_to_driver_param(param param: Param) -> Value {
+fn cake_param_to_client_param(param param: Param) -> Value {
   case param {
     BoolParam(param) -> sqlight.bool(param)
     FloatParam(param) -> sqlight.float(param)
