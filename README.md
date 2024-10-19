@@ -71,8 +71,19 @@ pub fn main() {
     |> d.table("birds")
     |> d.where(w.col("birds.species") |> w.eq(w.string("Dodo")))
     |> d.to_query
-    |> cake.to_write_query
+    |> sqlite.run_write_query(dynamic.dynamic, db_connection)
     |> io.debug
+
+    // Could also wrap in a generic cake query:
+    // Instead of:
+    // |> d.to_query
+    // |> sqlite.run_write_query(dynamic.dynamic, db_connection)
+    // Run:
+    // |> d.to_query
+    // |> cake.to_write_query
+    // |> sqlite.run_query(dynamic.dynamic, db_connection)
+    //
+    // The same exists for read queries.
   })
 }
 ```
