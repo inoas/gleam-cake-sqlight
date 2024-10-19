@@ -10,8 +10,9 @@ import cake/dialect/sqlite_dialect
 import cake/param.{
   type Param, BoolParam, FloatParam, IntParam, NullParam, StringParam,
 }
+import gleam/dynamic.{type DecodeError, type Dynamic}
 import gleam/list
-import sqlight.{type Connection, type Value}
+import sqlight.{type Connection, type Error, type Value}
 
 /// Connection to a SQLite database.
 ///
@@ -52,9 +53,9 @@ pub fn write_query_to_prepared_statement(
 ///
 pub fn run_read_query(
   query query: ReadQuery,
-  decoder decoder,
-  db_connection db_connection,
-) {
+  decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
+  db_connection db_connection: Connection,
+) -> Result(List(a), Error) {
   let prepared_statement = read_query_to_prepared_statement(query)
   let db_params =
     prepared_statement
@@ -70,9 +71,9 @@ pub fn run_read_query(
 ///
 pub fn run_write_query(
   query query: WriteQuery(a),
-  decoder decoder,
-  db_connection db_connection,
-) {
+  decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
+  db_connection db_connection: Connection,
+) -> Result(List(a), Error) {
   let prepared_statement = write_query_to_prepared_statement(query)
   let db_params =
     prepared_statement
@@ -90,9 +91,9 @@ pub fn run_write_query(
 ///
 pub fn run_query(
   query query: CakeQuery(a),
-  decoder decoder,
-  db_connection db_connection,
-) {
+  decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
+  db_connection db_connection: Connection,
+) -> Result(List(a), Error) {
   case query {
     CakeReadQuery(read_query) ->
       read_query |> run_read_query(decoder, db_connection)
@@ -103,7 +104,10 @@ pub fn run_query(
 
 /// Execute a raw SQL query against an SQLite database.
 ///
-pub fn execute_raw_sql(sql sql: String, connection connection: Connection) {
+pub fn execute_raw_sql(
+  sql sql: String,
+  connection connection: Connection,
+) -> Result(Nil, Error) {
   sql |> sqlight.exec(on: connection)
 }
 
