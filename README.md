@@ -81,7 +81,7 @@ fn delete_from_table_demo(db_connection) {
   // delete from table birds
   d.new()
   |> d.table("birds")
-  |> d.where(w.col("birds.species") |> w.eq(w.string("Dodo")))
+  |> d.where(w.col("species") |> w.eq(w.string("Dodo")))
   |> d.to_query
   |> sqlite.run_write_query(dynamic.dynamic, db_connection)
   |> io.debug
