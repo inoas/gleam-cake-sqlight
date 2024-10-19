@@ -27,6 +27,7 @@ import cake/adapter/sqlite
 import cake/delete as d
 import cake/insert as i
 import cake/select as s
+import cake/where as w
 import gleam/dynamic
 
 const sqlite_database_filename = "birds.sqlite3"
