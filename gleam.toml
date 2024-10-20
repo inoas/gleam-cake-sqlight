@@ -1,5 +1,5 @@
 name = "cake_sqlight"
-version = "1.0.0"
+version = "1.0.1"
 description = "🎂Cake 🪶SQLite adapter which which passes PreparedStatements to the sqlight library for execution written in Gleam."
 licences = ["MPL-2.0"]
 repository = { type = "github", user = "inoas", repo = "gleam-cake-sqlight" }
@@ -14,5 +14,5 @@ pages = [
 
 [dependencies]
 cake = ">= 2.0.0 and < 3.0.0"
-sqlight = ">= 0.9.1 and < 1.0.0"
-gleam_stdlib = ">= 0.40.0 and < 1.0.0"
+gleam_stdlib = ">= 0.40.0 and < 2.0.0"
+sqlight = ">= 0.9.1 and < 2.0.0"
