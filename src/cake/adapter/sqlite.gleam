@@ -1,4 +1,4 @@
-//// 🎂Cake 🪶SQLite adapter which which passes `PreparedStatement`s
+//// 🎂Cake 🪶SQLite adapter which passes `PreparedStatement`s
 //// to the `sqlight` library for execution.
 ////
 
