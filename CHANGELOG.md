@@ -4,6 +4,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- ## [Unreleased] -->
+## [1.0.2] - 2024-11-03
+
+- Added omitted license file.
 
 ## [1.0.1] - 2024-10-20
 
