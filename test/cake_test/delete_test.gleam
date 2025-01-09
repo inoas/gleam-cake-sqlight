@@ -1,9 +1,9 @@
 import birdie
+import cake/adapter/sqlite
 import cake/delete as d
 import cake/where as w
 import pprint.{format as to_string}
 import test_helper/sqlite_test_helper
-import test_support/adapter/sqlite
 
 // ┌───────────────────────────────────────────────────────────────────────────┐
 // │  Setup                                                                    │

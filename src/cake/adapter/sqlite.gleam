@@ -10,7 +10,7 @@ import cake/dialect/sqlite_dialect
 import cake/param.{
   type Param, BoolParam, FloatParam, IntParam, NullParam, StringParam,
 }
-import gleam/dynamic.{type DecodeError, type Dynamic}
+import gleam/dynamic/decode.{type Decoder}
 import gleam/list
 import sqlight.{type Connection, type Error, type Value}
 
@@ -53,7 +53,7 @@ pub fn write_query_to_prepared_statement(
 ///
 pub fn run_read_query(
   query query: ReadQuery,
-  decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
+  decoder decoder: Decoder(a),
   db_connection db_connection: Connection,
 ) -> Result(List(a), Error) {
   let prepared_statement = query |> read_query_to_prepared_statement
@@ -71,7 +71,7 @@ pub fn run_read_query(
 ///
 pub fn run_write_query(
   query query: WriteQuery(a),
-  decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
+  decoder decoder: Decoder(a),
   db_connection db_connection: Connection,
 ) -> Result(List(a), Error) {
   let prepared_statement = query |> write_query_to_prepared_statement
@@ -91,7 +91,7 @@ pub fn run_write_query(
 ///
 pub fn run_query(
   query query: CakeQuery(a),
-  decoder decoder: fn(Dynamic) -> Result(a, List(DecodeError)),
+  decoder decoder: Decoder(a),
   db_connection db_connection: Connection,
 ) -> Result(List(a), Error) {
   case query {
