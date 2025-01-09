@@ -2,13 +2,13 @@
 # You typically do not need to edit this file
 
 packages = [
-  { name = "cake", version = "2.0.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "cake", source = "hex", outer_checksum = "0F9D47447C0BDABE21522CC9792DA42AEBC1EC43E53919F6173FD843DA88A1B8" },
-  { name = "esqlite", version = "0.8.8", build_tools = ["rebar3"], requirements = [], otp_app = "esqlite", source = "hex", outer_checksum = "374902457C7D94DC9409C98D3BDD1CA0D50A60DC9F3BDF1FD8EB74C0DCDF02D6" },
-  { name = "gleam_stdlib", version = "0.40.0", build_tools = ["gleam"], requirements = [], otp_app = "gleam_stdlib", source = "hex", outer_checksum = "86606B75A600BBD05E539EB59FABC6E307EEEA7B1E5865AFB6D980A93BCB2181" },
-  { name = "sqlight", version = "0.9.1", build_tools = ["gleam"], requirements = ["esqlite", "gleam_stdlib"], otp_app = "sqlight", source = "hex", outer_checksum = "A495F2892627B2268CCBCC5107EDC1E1AD9547D5F4F21A5DB04CEA72B8931B00" },
+  { name = "cake", version = "2.1.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "cake", source = "hex", outer_checksum = "141FEBE63A3BBD2872232BBB61B83E75F9367A4C07DD825286D58AF8D86D7702" },
+  { name = "esqlite", version = "0.8.9", build_tools = ["rebar3"], requirements = [], otp_app = "esqlite", source = "hex", outer_checksum = "465AE9AE28AE4192EA54C829FDC90C320447D439A9B2E10946621672FC6A6F8C" },
+  { name = "gleam_stdlib", version = "0.52.0", build_tools = ["gleam"], requirements = [], otp_app = "gleam_stdlib", source = "hex", outer_checksum = "50703862DF26453B277688FFCDBE9DD4AC45B3BD9742C0B370DB62BC1629A07D" },
+  { name = "sqlight", version = "1.0.0", build_tools = ["gleam"], requirements = ["esqlite", "gleam_stdlib"], otp_app = "sqlight", source = "hex", outer_checksum = "18A860646F29DDDDE819A9561696E6A4CA9825770EE7A9CA039E58EF5C312EC0" },
 ]
 
 [requirements]
 cake = { version = ">= 2.0.0 and < 3.0.0" }
-gleam_stdlib = { version = ">= 0.40.0 and < 2.0.0" }
-sqlight = { version = ">= 0.9.1 and < 2.0.0" }
+gleam_stdlib = { version = ">= 0.52.0 and < 1.0.0" }
+sqlight = { version = ">= 1.0.0 and < 2.0.0" }

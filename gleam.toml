@@ -9,10 +9,10 @@ gleam = ">= 1.4.0 and < 2.0.0"
 
 [documentation]
 pages = [
-  { title = "CHANGELOG", path = "changelog.html", source = "CHANGELOG.md" },
+    { title = "CHANGELOG", path = "changelog.html", source = "CHANGELOG.md" },
 ]
 
 [dependencies]
 cake = ">= 2.0.0 and < 3.0.0"
-gleam_stdlib = ">= 0.40.0 and < 2.0.0"
-sqlight = ">= 0.9.1 and < 2.0.0"
+gleam_stdlib = ">= 0.52.0 and < 1.0.0"
+sqlight = ">= 1.0.0 and < 2.0.0"
