@@ -1,0 +1,24 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_call:
+
+jobs:
+  test_lowest:
+    uses: ./.github/workflows/abstract_test.yml
+    with:
+      erlang_version: "26"
+      gleam_version: "1.6.3"
+      test_erlang: true
+      test_node: false
+  test_highest:
+    uses: ./.github/workflows/abstract_test.yml
+    with:
+      erlang_version: "27"
+      gleam_version: "1.7.0"
+      test_erlang: true
+      test_node: false
