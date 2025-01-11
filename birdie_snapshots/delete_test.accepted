@@ -1,0 +1,20 @@
+---
+version: 1.2.3
+title: delete_test
+file: ./test/cake_test/delete_test.gleam
+test_name: delete_test
+---
+DeleteQuery(Delete(
+  NoDeleteModifier,
+  DeleteTable("owners"),
+  NoDeleteUsing,
+  NoJoins,
+  WhereComparison(
+    WhereColumnValue("owners.name"),
+    Equal,
+    WhereParamValue(StringParam("Alice")),
+  ),
+  Returning(["owners.id"]),
+  NoEpilog,
+  NoComment,
+))
