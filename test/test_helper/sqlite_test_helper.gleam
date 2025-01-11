@@ -1,5 +1,5 @@
+import cake/adapter/sqlite
 import gleam/dynamic
-import test_support/adapter/sqlite
 import test_support/test_data
 
 pub fn setup_and_run(query) {
