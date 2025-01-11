@@ -1,10 +1,10 @@
 import birdie
+import cake/adapter/sqlite
 import cake/fragment as f
 import cake/select as s
 import cake/update as u
 import pprint.{format as to_string}
 import test_helper/sqlite_test_helper
-import test_support/adapter/sqlite
 
 // ┌───────────────────────────────────────────────────────────────────────────┐
 // │  Setup                                                                    │
