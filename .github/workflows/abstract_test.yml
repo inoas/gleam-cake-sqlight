@@ -55,12 +55,6 @@ jobs:
         with:
           gleam_version: ${{ inputs.gleam_version }}
           erlang_version: ${{ matrix.erlang }}
-      - run: ./.github/sh/create-database-gleam_cake_test-postgres.sh
-        env:
-          PGHOST: localhost
-          PGPORT: 5432
-          PGPASSWORD: postgres
-          PGUSER: postgres
       - uses: inoas/gleam_actions/.github/actions/test@main-on-upstream
         with:
           target: "erlang"
