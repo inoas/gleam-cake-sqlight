@@ -28,7 +28,7 @@ import cake/delete as d
 import cake/insert as i
 import cake/select as s
 import cake/where as w
-import gleam/dynamic
+import gleam/decode/dynamic
 
 const sqlite_database_filename = "birds.sqlite3"
 
@@ -64,7 +64,7 @@ fn insert_into_table_birds(db_connection) {
       ]
   )
   |> i.to_query
-  |> sqlite.run_write_query(dynamic.dynamic, db_connection)
+  |> sqlite.run_write_query(decode.dynamic, db_connection)
   |> io.debug
 }
 
@@ -73,7 +73,7 @@ fn select_from_table_birds(db_connection) {
   |> s.from_table("table")
   |> s.selects([s.col("species")])
   |> s.to_query
-  |> sqlite.run_read_query(dynamic.dynamic, db_connection)
+  |> sqlite.run_read_query(decode.dynamic, db_connection)
   |> io.debug
 }
 
@@ -82,7 +82,7 @@ fn delete_from_table_birds(db_connection) {
   |> d.table("birds")
   |> d.where(w.col("species") |> w.eq(w.string("Dodo")))
   |> d.to_query
-  |> sqlite.run_write_query(dynamic.dynamic, db_connection)
+  |> sqlite.run_write_query(decode.dynamic, db_connection)
   |> io.debug
 }
 ```
