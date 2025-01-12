@@ -14,7 +14,7 @@
 ## Installation
 
 ```sh
-gleam add cake_sqlight@1
+gleam add cake_sqlight
 ```
 
 ## Example
