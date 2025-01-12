@@ -4,6 +4,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- ## [Unreleased] -->
+## [1.1.0] - 2025-01-11
+
+- Fixed compatibility with `gleam_stdlib >= 0.50` and `sqlight >= 1.0.0`.
+
 ## [1.0.3] - 2025-01-11
 
 - Dev release: Added basic unit tests and CI pipeline.
