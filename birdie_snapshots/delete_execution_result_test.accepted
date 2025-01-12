@@ -1,0 +1,7 @@
+---
+version: 1.2.3
+title: delete_execution_result_test
+file: ./test/cake_test/delete_test.gleam
+test_name: delete_execution_result_test
+---
+Ok([#(1)])
