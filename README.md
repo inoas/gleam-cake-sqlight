@@ -4,10 +4,8 @@
 [![Erlang-compatible](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/cake_sqlight/)
 [![Discord](https://img.shields.io/discord/768594524158427167?label=discord%20chat&amp;color=5865F2)](https://discord.gg/Fm8Pwmy)
-
-<!--
 [![CI Test](https://github.com/inoas/gleam-cake-sqlight/actions/workflows/test.yml/badge.svg?branch=main&amp;event=push)](https://github.com/inoas/gleam-cake-sqlight/actions/workflows/test.yml)
--->
+
 
 🎂[Cake](http://hex.pm/packages/cake) 🪶SQLite adapter which passes `PreparedStatement`s to the [sqlight](http://hex.pm/packages/sqlight) library for execution written in [Gleam](https://gleam.run/).
 
