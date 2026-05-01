@@ -12,7 +12,7 @@ and this project adheres to
 
 ## [1.3.0] - 2026-04-30
 
-- (unreleased).
+- (skipped).
 
 ## [1.2.0] - 2025-11-09
 
