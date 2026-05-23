@@ -47,7 +47,7 @@ fn create_table_if_not_exists_birds(db_connection) {
     is_extinct BOOLEAN
   );"
   |> sqlite.execute_raw_sql(db_connection)
-  |> io.debug
+  |> echo
 }
 
 fn insert_into_table_birds(db_connection) {
@@ -63,7 +63,7 @@ fn insert_into_table_birds(db_connection) {
   )
   |> i.to_query
   |> sqlite.run_write_query(decode.dynamic, db_connection)
-  |> io.debug
+  |> echo
 }
 
 fn select_from_table_birds(db_connection) {
@@ -72,7 +72,7 @@ fn select_from_table_birds(db_connection) {
   |> s.selects([s.col("species")])
   |> s.to_query
   |> sqlite.run_read_query(decode.dynamic, db_connection)
-  |> io.debug
+  |> echo
 }
 
 fn delete_from_table_birds(db_connection) {
@@ -81,6 +81,6 @@ fn delete_from_table_birds(db_connection) {
   |> d.where(w.col("species") |> w.eq(w.string("Dodo")))
   |> d.to_query
   |> sqlite.run_write_query(decode.dynamic, db_connection)
-  |> io.debug
+  |> echo
 }
 ```
