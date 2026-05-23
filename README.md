@@ -84,8 +84,3 @@ fn delete_from_table_birds(db_connection) {
   |> io.debug
 }
 ```
-
-## Migrations
-
-You may use the [storch library](http://hex.pm/packages/storch) to run SQLite
-migrations.
