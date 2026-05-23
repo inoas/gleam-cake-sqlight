@@ -10,7 +10,6 @@
 [![Discord](https://img.shields.io/discord/768594524158427167?label=discord%20chat&amp;color=5865F2)](https://discord.gg/Fm8Pwmy)
 
 <br>
-<br>
 
 🎂[Cake](http://hex.pm/packages/cake) 🪶SQLite adapter which passes `PreparedStatement`s to the [sqlight](http://hex.pm/packages/sqlight) library for execution written in [Gleam](https://gleam.run/).
 
