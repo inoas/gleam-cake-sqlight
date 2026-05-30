@@ -116,23 +116,29 @@ pub fn execute_raw_sql(
 
 fn cake_param_to_client_param(param param: Param) -> Value {
   case param {
-    BoolParam(param) -> sqlight.bool(param)
-    FloatParam(param) -> sqlight.float(param)
-    IntParam(param) -> sqlight.int(param)
-    StringParam(param) -> sqlight.text(param)
+    StringParam(value) -> sqlight.text(value)
+    IntParam(value) -> sqlight.int(value)
+    FloatParam(value) -> sqlight.float(value)
     NullParam -> sqlight.null()
-    DateParam(param) -> {
-      let calendar.Date(year, month, day) = param
-      let year = year |> int.to_string |> string.pad_start(with: "0", to: 4)
+    BoolParam(value) -> sqlight.bool(value)
+    // DateParam(value) -> sqlight.calendar_date(value)
+    // FIXME once sqlight supports gleam_time calendar
+    DateParam(calendar.Date(year:, month:, day:)) -> {
+      let year =
+        year
+        |> int.to_string
+        |> string.pad_start(with: "0", to: 4)
       let month =
         month
         |> calendar.month_to_int
         |> int.to_string
         |> string.pad_start(with: "0", to: 2)
-      let day = day |> int.to_string |> string.pad_start(with: "0", to: 2)
+      let day =
+        day
+        |> int.to_string
+        |> string.pad_start(with: "0", to: 2)
       let date = year <> "-" <> month <> "-" <> day
-
-      date |> sqlight.text()
+      date |> sqlight.text
     }
   }
 }
